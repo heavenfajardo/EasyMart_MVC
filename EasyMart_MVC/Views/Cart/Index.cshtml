@@ -1,0 +1,107 @@
+﻿@model EasyMart_MVC.Models.CartViewModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cart</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 15px;
+        }
+
+        img {
+            width: 100px;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        span {
+            color: #333;
+        }
+
+        form {
+            display: inline;
+        }
+
+        input[type="submit"] {
+            background-color: #FFA31A;
+            color: black;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+            input[type="submit"]:hover {
+                background-color: #FFC266;
+            }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Cart</h1>
+        <ul>
+            @foreach (var item in Model.CartItems)
+            {
+                <li>
+                    <img src="@item.ImageUrl" alt="@item.ProductName" />
+                    <span>@item.ProductName - @item.Price.ToString("C") x @item.Quantity</span>
+                    <form asp-action="IncreaseQuantity" method="post">
+                        <input type="hidden" name="productName" value="@item.ProductName" />
+                        <button type="submit">+</button>
+                    </form>
+                    <form asp-action="DecreaseQuantity" method="post">
+                        <input type="hidden" name="productName" value="@item.ProductName" />
+                        <button type="submit">-</button>
+                    </form>
+                    <form asp-action="RemoveItem" method="post">
+                        <input type="hidden" name="productName" value="@item.ProductName" />
+                        <button type="submit">Remove</button>
+                    </form>
+                </li>
+            }
+        </ul>
+        <div>
+            <strong>Total Price: @Model.CartItems.Sum(item => item.Price * item.Quantity).ToString("C")</strong>
+        </div>
+        <!-- Add Pay Now button -->
+        <form asp-action="PayNow" method="post">
+            <input type="hidden" name="cartTotalPrice" value="@Model.CartItems.Sum(item => item.Price * item.Quantity)" />
+            <button type="submit">Pay Now</button>
+        </form>
+        <form asp-action="Index" asp-controller="Menu" method="get">
+            <button type="submit">Back to Menu</button>
+        </form>
+        <form asp-action="Index" asp-controller="Home" method="get">
+            <button type="submit">Home</button>
+        </form>
+    </div>
+</body>
+</html>

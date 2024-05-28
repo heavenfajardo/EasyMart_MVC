@@ -1,0 +1,59 @@
+﻿@model EasyMart_MVC.Models.ReceiptModel
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Receipt</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        .receipt-item {
+            margin-bottom: 10px;
+        }
+
+            .receipt-item strong {
+                color: #333;
+            }
+
+            .receipt-item p {
+                margin: 5px 0;
+                font-size: 16px;
+            }
+
+                .receipt-item p:last-child {
+                    margin-bottom: 0;
+                }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Receipt</h1>
+        <div class="receipt-item">
+            <p><strong>Full Name:</strong> @Model.FullName</p>
+            <p><strong>Contact Number:</strong> @Model.ContactNumber</p>
+            <p><strong>Gcash Name:</strong> @Model.GcashName</p>
+            <p><strong>Gcash Number:</strong> @Model.GcashNumber</p>
+            <p><strong>Amount Paid:</strong> @Model.AmountPaid.ToString("C")</p>
+            <!-- Add other receipt details as needed -->
+        </div>
+    </div>
+</body>
+</html>

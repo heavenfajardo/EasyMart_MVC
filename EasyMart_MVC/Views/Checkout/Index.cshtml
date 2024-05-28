@@ -1,0 +1,17 @@
+﻿@model EasyMart_MVC.Models.CheckoutViewModel
+
+<h1>Checkout</h1>
+<form asp-action="Confirm" method="post">
+    <div>
+        <!-- Your form fields -->
+    </div>
+    <h2>Order Summary</h2>
+    <ul>
+        @foreach (var item in Model.CartItems)
+        {
+            <li>@item.ProductName - Quantity: @item.Quantity - Price: @item.Price</li>
+        }
+    </ul>
+    <h3>Total: @Model.TotalAmount</h3>
+    <button type="submit">Confirm Order</button>
+</form>

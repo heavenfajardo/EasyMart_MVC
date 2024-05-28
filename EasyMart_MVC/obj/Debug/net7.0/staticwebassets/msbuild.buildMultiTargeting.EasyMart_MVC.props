@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\EasyMart_MVC.props" />
+</Project>

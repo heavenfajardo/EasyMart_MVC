@@ -1,0 +1,123 @@
+﻿@{
+    ViewData["Title"] = "Home";
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Easy Mart</title>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: url('/images/easymart_bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffa31a;
+            text-align: center;
+        }
+
+        header {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 1rem;
+            color: #ffa31a;
+        }
+
+            header h1 {
+                margin: 0;
+            }
+
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            background-color: rgba(0, 0, 0, 0.8);
+            margin: 0;
+        }
+
+            nav ul li {
+                margin: 0 1rem;
+            }
+
+                nav ul li a {
+                    color: #ffa31a;
+                    text-decoration: none;
+                    font-weight: bold;
+                }
+
+                    nav ul li a:hover {
+                        text-decoration: underline;
+                    }
+
+        footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            color: #ffa31a;
+            text-align: center;
+            padding: 1rem 0;
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+        }
+
+        .dashboard-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-top: 2rem;
+        }
+
+        .dashboard-item {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 2rem;
+            margin: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            flex-basis: calc(33% - 2rem);
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+            .dashboard-item:hover {
+                transform: scale(1.05);
+            }
+
+            .dashboard-item a {
+                color: #ffa31a;
+                text-decoration: none;
+                font-size: 1.2rem;
+                display: block;
+                margin-top: 1rem;
+            }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Welcome to Easy Mart!</h1>
+    </header>
+    <div class="dashboard-container">
+        <div class="dashboard-item">
+            <h2>Menu</h2>
+            <a href="/Menu">Go to Menu</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>My Cart</h2>
+            <a href="/Cart">Go to Cart</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Payment</h2>
+            <a href="/Payment">Go to Payment</a>
+        </div>
+        <div class="dashboard-item">
+            <h2>Receipt</h2>
+            <a href="/Receipt">Go to Receipt</a>
+        </div>
+    </div>
+    <footer>
+        &copy; 2024 - Easy Mart - <a href="/Home/Privacy" style="color: #ffa31a;">Privacy</a>
+    </footer>
+</body>
+</html>

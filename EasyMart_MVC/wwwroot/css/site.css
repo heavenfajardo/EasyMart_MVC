@@ -1,0 +1,16 @@
+/* Custom styles for the menu images and cards */
+
+
+
+/* Button style */
+.btn-primary {
+    background-color: #ffa31a; /* Set button background color */
+    border-color: #ffa31a; /* Set button border color */
+    color: black; /* Set button text color */
+}
+
+    .btn-primary:hover {
+        background-color: black; /* Set button background color on hover */
+        border-color: black; /* Set button border color on hover */
+        color: #ffa31a; /* Set button text color on hover */
+    }
